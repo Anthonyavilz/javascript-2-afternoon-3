@@ -38,6 +38,9 @@ first(names, function(firstName){
 });
 // Do not edit the code above.
 
+function first(arr, cb) {
+  cb(arr[0])
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -56,7 +59,9 @@ last(names, function(lastName){
 });
 // Do not edit the code above.
 
-
+function last(arr, cb) {
+  cb(arr[arr.length-1])
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -73,7 +78,9 @@ multiply(4, 3, function(answer){
 });
 // Do not edit the code above.
 
-
+function multiply(num1, num2, cb) {
+  cb(num1 * num2)
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -96,7 +103,13 @@ contains(names, 'Colt', function(result){
 });
 // Do not edit the code above.
 
-
+function contains(arr, name, cb) {
+  if (arr.includes(name)) {
+    cb(true)
+  } else {
+    cb(false)
+  }
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -113,7 +126,15 @@ uniq(names, function(uniqArr){
 });
 // Do not edit the code above.
 
-
+function uniq(arr, cb) {
+  let result = [];
+  for (let i=0; i<arr.length; i++) {
+    if (result.indexOf(arr[i]) === -1) {
+      result.push(arr[i])
+    }
+  }
+  cb(result)
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -123,6 +144,12 @@ uniq(names, function(uniqArr){
 */
 
 //Code Here 
+
+function each(arr, cb){
+  for (let i=0; i < arr.length; i++){
+     cb(arr[i], i)
+  }
+}
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -140,6 +167,14 @@ each(names, function(item, indice){
 */
 
 // Code here
+function getUserById(arr, id, cb){
+  for (let i=0; i < arr.length; i++){
+    if (id === arr[i].id){
+      return cb(arr[i])
+    }
+  }
+}
+
 
 // Do not edit the code below.
 var users = [
@@ -167,3 +202,31 @@ getUserById(users, '16t', function(user){
   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address); 
 });
 // Do not edit the code above.
+
+
+// // Do not edit the code below.
+// var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
+// // Do not edit the code above.
+
+// /*
+//   Write a function called divider that is given one argument, numbersArray.
+//   Have divider return an array with the first item in the array being the evens array (all the even values from numbersArray)
+//   and the second item in the array being the odds array (all the odd values from numbersArray).
+// */
+
+// //Code Here
+
+// function divider(numbersArray) {
+//   let evensArray = [];
+//   let oddsArray = [];
+  
+//   for (let i=0; i < numbersArray.length; i++) {
+//     if (numbersArray[i] % 2 === 0) {
+//       evensArray.push(numbersArray[i])
+//     } else {
+//       } oddsArray.push(numbersArray[i])
+//     }
+//   }
+
+//   return [evenArray, oddsArray]
+// }
